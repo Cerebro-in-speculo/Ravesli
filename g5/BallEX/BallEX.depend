@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1553203917 source:/home/hunter/Рабочий стол/C++/Programms/BallEX/main.cpp
+	<iostream>
+	"mhader.h"
+
+1553203494 source:/home/hunter/Рабочий стол/C++/Programms/BallEX/fmain.cpp
+	<iostream>
+	"mhader.h"
+
+1553202232 /home/hunter/Рабочий стол/C++/Programms/BallEX/mhader.h
+
