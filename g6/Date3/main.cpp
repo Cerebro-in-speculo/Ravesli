@@ -10,5 +10,6 @@ int main()
         std::cout<<array[i]<<" ";
     std::cout<<'\n';
 
+	system("pause");
     return 0;
 }
