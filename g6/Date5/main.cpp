@@ -14,12 +14,12 @@ int main()
 
     for(int i=0;i<lenght-1;++i)
     {
-        for(int j=i+1;j<lenght;++j)
-            if(date[i]>date[j])
+        for(int j=0;j<lenght-1;++j)
+            if(date[j]>date[j+1])
                 {
-                    int temp=date[i];
-                    date[i]=date[j];
-                    date[j]=temp;
+                    int temp=date[j];
+                    date[j]=date[j+1];
+                    date[j+1]=temp;
                     ++countMin;
                 }
 
@@ -52,12 +52,12 @@ int main()
 
     for(int i=0;i<lenght-1;++i)
     {
-        for(int j=i+1;j<lenght-j-1;++j)
-            if(date[i]>date[j])
+        for(int j=0;j<lenght-i-1;++j)
+            if(date[j]>date[j+1])
                 {
-                    int temp=date[i];
-                    date[i]=date[j];
-                    date[j]=temp;
+                    int temp=date[j];
+                    date[j]=date[j+1];
+                    date[j+1]=temp;
                     ++countMinAG;
                 }
 
@@ -75,6 +75,6 @@ int main()
         std::cout<<date[i]<<" ";
     std::cout<<'\n';
 
-    //system("pause");
+    system("pause");
     return 0;
 }
