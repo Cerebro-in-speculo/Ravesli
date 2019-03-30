@@ -1,27 +1,28 @@
 #include<iostream>
 #include<string>
+#include<cstring>
 
 int main()
 {
-	std::string name{ "Roman Ledovskih" };
-	std::cout << name << std::endl;
+    char date[]{"Romannn Ledovskihnnn"};
+    char name[50];
 
-	char nameC[]{ "Roman Ledovskih" };
-	for (int i = 0; i < sizeof(nameC); ++i)
-		std::cout << nameC[i] <<" "<<static_cast<int>(nameC[i]);
-	std::cout << std::endl;
+    strcpy(name,date);
+    strcat(name," age 35 ");
 
-	std::cout << nameC << '\n';
+    std::cout<<name<<std::endl;
 
-	char date[5];
-	std::cin.getline(date, 4);
-	std::cout << date;
+    int count{};
+    for(int i=0;i<strlen(name);++i)
+    {
+        if(name[i]=='n')
+        ++count;
+    }
 
-	
-	//std::getline(std::cin, name);
-	//std::cout << name;
-    //std::cout << std::endl;
 
-	system("pause");
+    std::cout<<strlen(name)<<std::endl;
+   // std::cout<<strcmp(name,date)<<std::endl;
+    std::cout<<count<<std::endl;
+
 	return 0;
 }
