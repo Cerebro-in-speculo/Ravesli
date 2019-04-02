@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1554237043 source:/home/hunter/Рабочий стол/C++/Ravesli/g6/NEW2/fmain.cpp
+	<iostream>
+	<string>
+
+1554237204 source:/home/hunter/Рабочий стол/C++/Ravesli/g6/NEW2/main.cpp
+	<iostream>
+	"hmain.h"
+
+1554236530 /home/hunter/Рабочий стол/C++/Ravesli/g6/NEW2/hmain.h
+
