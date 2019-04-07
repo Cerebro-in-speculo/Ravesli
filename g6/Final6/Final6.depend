@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1554658318 source:/home/hunter/Рабочий стол/C++/Ravesli/g6/Final6/main.cpp
+	<iostream>
+	<array>
+	<ctime>
+
