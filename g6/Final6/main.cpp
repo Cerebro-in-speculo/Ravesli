@@ -130,6 +130,74 @@ void printCard(const Card &card)
     }
     return 0;
  }
+//________________________________________________
+
+
+ bool playBlackjack(std::array<Card,52>&desk)
+ {
+    Card *cardPtr;
+    cardPtr=&desk[0];
+
+    int player{0},diller{0};
+
+
+    diller=getCardValue(*cardPtr);
+
+    player=getCardValue(*(++cardPtr))+getCardValue(*(++cardPtr));
+
+    std::cout<<"Diller = "<<diller<<std::endl;
+    std::cout<<"Player = "<<player<<std::endl;
+
+    bool chose{false};
+
+    do {
+    std::cout<<"Player is hit or stand? Y/N: ";
+    std::string playerChose;
+    std::getline(std::cin,playerChose);
+
+    if (playerChose=="Y")
+    {
+        player+=getCardValue(*(++cardPtr));
+        std::cout<<"Player = "<<player<<std::endl;
+
+        if(player<=21)
+        chose=true;
+        else
+        {
+            std::cout<<"Player TOTAL = "<<player<<std::endl;
+            return false;
+        }
+    }
+    else if(playerChose=="N")
+        chose=false;
+
+    }while(chose);
+
+    do {
+
+        if(diller<17)
+        {
+            diller+=getCardValue(*(++cardPtr));
+            std::cout<<"Diller = "<<diller<<std::endl;
+            chose=true;
+        }
+        else if (diller>=17||diller<=21)
+        {
+            std::cout<<"Diller TOTAL= "<<diller<<std::endl;
+            chose=false;
+            }
+        else if(diller>21)
+        {
+            std::cout<<"Diller = "<<diller<<std::endl;
+            return false;
+        }
+    }while(chose);
+
+    if(player>=diller)
+        return true;
+    return false;
+ }
+//__________________________________________________________________
 
 int main()
 {
@@ -149,10 +217,17 @@ int main()
         }
     }
 
-   shuffleDeck(desk);
-   printDeck(desk);
+    shuffleDeck(desk);
+    //printDeck(desk);
 
-   std::cout<<std::endl;
+    std::cout<<std::endl;
+
+    if(playBlackjack(desk))
+        std::cout<<"Player is WIN!!!!!\n";
+    else
+        std::cout<<"Diller is WIN!!!!!\n";
+
+    std::cout<<std::endl;
 
     return 0;
 }
