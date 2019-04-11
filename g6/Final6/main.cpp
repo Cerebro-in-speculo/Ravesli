@@ -157,8 +157,26 @@ void printCard(const Card &card)
 
     if (playerChose=="Y")
     {
-        player+=getCardValue(*(++cardPtr));
-        std::cout<<"Player = "<<player<<std::endl;
+        if (((++cardPtr)->dostoinstvo)==Dostoinstvo::TUZ)
+        {
+            std::cout<<"11 or 1?: ";
+            int tuzChose{0};
+            std::cin>>tuzChose;
+
+                if (tuzChose==11)
+                    player+=getCardValue(*(++cardPtr));
+                else
+                    {
+                        ++cardPtr;
+                        ++player;
+                    }
+
+        }
+        else
+        {
+            player+=getCardValue(*(++cardPtr));
+            std::cout<<"Player = "<<player<<std::endl;
+        }
 
         if(player<=21)
         chose=true;
@@ -186,16 +204,22 @@ void printCard(const Card &card)
             std::cout<<"Diller TOTAL= "<<diller<<std::endl;
             chose=false;
             }
-        else if(diller>21)
+        if(diller>21)
         {
             std::cout<<"Diller = "<<diller<<std::endl;
-            return false;
+            return true;
         }
     }while(chose);
 
-    if(player>=diller)
+    if(player>diller)
         return true;
-    return false;
+    else if(player<diller)
+        return false;
+    else
+        {
+        std::cout<<"NICHA!!!"<<std::endl;
+        return 2;
+        }
  }
 //__________________________________________________________________
 
@@ -222,7 +246,7 @@ int main()
 
     std::cout<<std::endl;
 
-    if(playBlackjack(desk))
+    if(playBlackjack(desk)&&playBlackjack(desk)!=2)
         std::cout<<"Player is WIN!!!!!\n";
     else
         std::cout<<"Diller is WIN!!!!!\n";
