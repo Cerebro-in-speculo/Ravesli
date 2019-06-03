@@ -3,17 +3,13 @@
 using namespace std;
 
 class Point {
-	double m_a = 0.0;
-	double m_b = 0.0;
+	double m_a;
+	double m_b;
 
 public:
 
-	Point(){}
-
-	Point(double a,double b) 
+	Point(double a=0.0,double b=0.0):m_a(a),m_b{b}
 	{
-		m_a = a;
-		m_b = b;
 	}
 	
 	void print()
